@@ -12,6 +12,7 @@ public class ApuestaButtons : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        cantidad = 0;
         StartCoroutine("setValue");
     }
 

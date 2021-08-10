@@ -7,31 +7,39 @@ public class WheelFortune : MonoBehaviour
 {
     private int randomValue;
     private float timeInterval;
-    private bool coroutineAllowed;
     private int finalAngle;
-    private int enemies;
+    public int enemies;
+    public int SpinCount;
+    public GameObject girarButton, playButton, feid;
 
     [SerializeField]
     private Text text;
+    public Text ApuestaText;
+    public int apuesta;
 
     // Start is called before the first frame update
     void Start()
     {
-        coroutineAllowed = true;
+        apuesta = PlayerPrefs.GetInt("apuesta");
+        enemies = PlayerPrefs.GetInt("enemigos");
+        feid.SetActive(true);
+        StartCoroutine("quitFeid");
+        SpinCount = 0;
+        girarButton.SetActive(true);
+        playButton.SetActive(false);
+        ApuestaText.text = "Tu apuesta actual es: $ " + apuesta.ToString();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && coroutineAllowed)
+        if(SpinCount == 2)
         {
-            StartCoroutine(Spin());
+            playButton.SetActive(true);
         }
     }
 
     private IEnumerator Spin()
     {
-        coroutineAllowed = false;
         randomValue = Random.Range(20, 30);
         timeInterval = 0.1f;
 
@@ -54,37 +62,51 @@ public class WheelFortune : MonoBehaviour
         {
             case 0:
                 enemies = 10;
-                text.text = "Enemigos: 10";
+                text.text = "10";
                 break;
             case 45:
                 enemies = 20;
-                text.text = "Enemigos: 20";
+                text.text = "20";
                 break;
             case 90:
                 enemies = 30;
-                text.text = "Enemigos: 30";
+                text.text = "30";
                 break;
             case 135:
                 enemies = 40;
-                text.text = "Enemigos: 40";
+                text.text = "40";
                 break;
             case 180:
                 enemies = 50;
-                text.text = "Enemigos: 50";
+                text.text = "50";
                 break;
             case 225:
                 enemies = 60;
-                text.text = "Enemigos: 60";
+                text.text = "60";
                 break;
             case 270:
                 enemies = 80;
-                text.text = "Enemigos: 80";
+                text.text = "80";
                 break;
             case 315:
                 enemies = 100;
-                text.text = "Enemigos: 100";
+                text.text = "100";
                 break;
         }
-        coroutineAllowed = true;
+        SpinCount = SpinCount + 1;
+        PlayerPrefs.SetInt("enemigos", enemies);
+        PlayerPrefs.Save();
+    }
+
+    public void SpinButton()
+    {
+        girarButton.SetActive(false);
+        StartCoroutine(Spin());
+    }
+
+    IEnumerator quitFeid()
+    {
+        yield return new WaitForSeconds(1.3f);
+        feid.SetActive(false);
     }
 }

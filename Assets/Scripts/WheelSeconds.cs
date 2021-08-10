@@ -7,9 +7,10 @@ public class WheelSeconds : MonoBehaviour
 {
     private int randomValue;
     private float timeInterval;
-    private bool coroutineAllowed;
     private int finalAngle;
     private float seconds;
+    public WheelFortune wheelFortune;
+    public Text frase;
 
     [SerializeField]
     private Text text;
@@ -17,21 +18,21 @@ public class WheelSeconds : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        coroutineAllowed = true;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && coroutineAllowed)
+        if(wheelFortune.SpinCount == 2)
         {
-            StartCoroutine(Spin());
+            frase.text = "Tienes que matar a " + wheelFortune.enemies.ToString() + 
+            " enemigos en " + seconds.ToString() + " segundos";
         }
     }
 
     private IEnumerator Spin()
     {
-        coroutineAllowed = false;
         randomValue = Random.Range(20, 30);
         timeInterval = 0.1f;
 
@@ -54,37 +55,43 @@ public class WheelSeconds : MonoBehaviour
         {
             case 0:
                 seconds = 30;
-                text.text = "Segundos: 30";
+                text.text = "30";
                 break;
             case 45:
                 seconds = 40;
-                text.text = "Segundos: 40";
+                text.text = "40";
                 break;
             case 90:
                 seconds = 50;
-                text.text = "Segundos: 50";
+                text.text = "50";
                 break;
             case 135:
                 seconds = 60;
-                text.text = "Segundos: 60";
+                text.text = "60";
                 break;
             case 180:
                 seconds = 70;
-                text.text = "Segundos: 70";
+                text.text = "70";
                 break;
             case 225:
                 seconds = 80;
-                text.text = "Segundos: 80";
+                text.text = "80";
                 break;
             case 270:
                 seconds = 90;
-                text.text = "Segundos: 90";
+                text.text = "90";
                 break;
             case 315:
                 seconds = 100;
-                text.text = "Segundos: 100";
+                text.text = "100";
                 break;
         }
-        coroutineAllowed = true;
+
+        wheelFortune.SpinCount = wheelFortune.SpinCount + 1;
+    }
+
+    public void SpinButton()
+    {
+        StartCoroutine(Spin());
     }
 }
