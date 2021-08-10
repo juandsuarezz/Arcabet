@@ -9,8 +9,8 @@ public class Apuesta : MonoBehaviour
     valorRestante, valorHabilidad;
     public Text apuestaText, valortotalText, tusmonedasText, restantesText;
     public InputField inputApuesta;
-    public GameObject noMonedasCanvas, feid;
-    public ApuestaButtons apuestaButtons;
+    public GameObject noMonedasCanvas, feid, panel;
+    public ApuestaButtons apuestaButtons1, apuestaButtons2, apuestaButtons3, apuestaButtons4;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +24,14 @@ public class Apuesta : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(valorApuesta == 0)
+        {
+            panel.SetActive(true);
+        }
+        else
+        {
+            panel.SetActive(false);
+        }
         valorRestante = monedasTotales - totalApuesta;
         totalApuesta = valorApuesta + precioHabilidades;
         restantesText.text = "monedas restantes $ " + valorRestante.ToString();
@@ -34,10 +42,19 @@ public class Apuesta : MonoBehaviour
 
     public void cambiarApuestaButton()
     {
-        if(int.Parse(inputApuesta.text) <= valorRestante)
+        if((int.Parse(inputApuesta.text) <= (monedasTotales - precioHabilidades)))
         {
             valorApuesta = int.Parse(inputApuesta.text);
             inputApuesta.text = "";
+            apuestaButtons1.SetValor();
+            apuestaButtons2.SetValor();
+            apuestaButtons3.SetValor();
+            apuestaButtons4.SetValor();
+            apuestaButtons1.cantidad = 0;
+            apuestaButtons2.cantidad = 0;
+            apuestaButtons3.cantidad = 0;
+            apuestaButtons4.cantidad = 0;
+            precioHabilidades = 0;
         }
         else
         {
@@ -52,12 +69,27 @@ public class Apuesta : MonoBehaviour
 
     public void botontemporal()
     {
-        apuestaButtons.cost = apuestaButtons.cost * 1.3f;
+        apuestaButtons4.cost = apuestaButtons4.cost * 1.3f;
     }
 
     IEnumerator quitFeid()
     {
         yield return new WaitForSeconds(2f);
         feid.SetActive(false);
+    }
+
+    public void BorrarTodo()
+    {
+        valorApuesta = 0;
+        precioHabilidades = 0;
+        apuestaButtons1.SetValor();
+        apuestaButtons2.SetValor();
+        apuestaButtons3.SetValor();
+        apuestaButtons4.SetValor();
+        apuestaButtons1.cantidad = 0;
+        apuestaButtons2.cantidad = 0;
+        apuestaButtons3.cantidad = 0;
+        apuestaButtons4.cantidad = 0;
+        precioHabilidades = 0;
     }
 }

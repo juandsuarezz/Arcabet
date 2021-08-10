@@ -39,6 +39,11 @@ public class ApuestaButtons : MonoBehaviour
     IEnumerator setValue()
     {
         yield return new WaitForSeconds(0.2f);
-        cost = Mathf.Round((float)apuestaScript.monedasTotales * ((float)porcentaje / 100));
+        SetValor();
+    }
+
+    public void SetValor()
+    {
+        cost = Mathf.Round((float)apuestaScript.valorApuesta * ((float)porcentaje / 100));
     }
 }
