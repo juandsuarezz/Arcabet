@@ -2,15 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Apuesta : MonoBehaviour
 {
     public int valorApuesta, totalApuesta, monedasTotales, precioHabilidades,
-    valorRestante, valorHabilidad;
+    valorRestante;
     public Text apuestaText, valortotalText, tusmonedasText, restantesText;
     public InputField inputApuesta;
     public GameObject noMonedasCanvas, feid, panel;
     public ApuestaButtons apuestaButtons1, apuestaButtons2, apuestaButtons3, apuestaButtons4;
+    public Animator feidAnim, musicAnim;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +20,7 @@ public class Apuesta : MonoBehaviour
         feid.SetActive(true);
         StartCoroutine("quitFeid");
         noMonedasCanvas.SetActive(false);
-        monedasTotales = 1000;
+        monedasTotales = PlayerPrefs.GetInt("monedas");
     }
 
     // Update is called once per frame
@@ -74,7 +76,7 @@ public class Apuesta : MonoBehaviour
 
     IEnumerator quitFeid()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.3f);
         feid.SetActive(false);
     }
 
@@ -91,5 +93,27 @@ public class Apuesta : MonoBehaviour
         apuestaButtons3.cantidad = 0;
         apuestaButtons4.cantidad = 0;
         precioHabilidades = 0;
+    }
+
+    public void ContinuarButton()
+    {
+        monedasTotales = valorRestante;
+        feid.SetActive(true);
+        feidAnim.SetTrigger("go");
+        musicAnim.SetTrigger("go");
+        StartCoroutine("goFortune");
+        PlayerPrefs.SetInt("monedas", monedasTotales);
+        PlayerPrefs.SetInt("apuesta", valorApuesta);
+        PlayerPrefs.SetInt("ch1", apuestaButtons1.cantidad);
+        PlayerPrefs.SetInt("ch2", apuestaButtons2.cantidad);
+        PlayerPrefs.SetInt("ch3", apuestaButtons3.cantidad);
+        PlayerPrefs.SetInt("ch4", apuestaButtons4.cantidad);
+        PlayerPrefs.Save();
+    }
+
+    IEnumerator goFortune()
+    {
+        yield return new WaitForSeconds(1.4f);
+        SceneManager.LoadScene("WheelsOfFortune");
     }
 }
