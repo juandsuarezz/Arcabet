@@ -7,16 +7,21 @@ using UnityEngine.SceneManagement;
 public class Apuesta : MonoBehaviour
 {
     public int valorApuesta, totalApuesta, monedasTotales, precioHabilidades,
-    valorRestante;
-    public Text apuestaText, valortotalText, tusmonedasText, restantesText;
+    valorRestante, highscore;
+    public Text apuestaText, valortotalText, tusmonedasText, restantesText, continuarText, retirarText;
     public InputField inputApuesta;
-    public GameObject noMonedasCanvas, feid, panel;
+    public GameObject noMonedasCanvas, feid, panel, continuarCanvas, needCanvas, retirarCanvas, ayudaCanvas;
     public ApuestaButtons apuestaButtons1, apuestaButtons2, apuestaButtons3, apuestaButtons4;
     public Animator feidAnim, musicAnim;
 
     // Start is called before the first frame update
     void Start()
     {
+        ayudaCanvas.SetActive(false);
+        retirarCanvas.SetActive(false);
+        highscore = PlayerPrefs.GetInt("highscore");
+        needCanvas.SetActive(false);
+        continuarCanvas.SetActive(false);
         feid.SetActive(true);
         StartCoroutine("quitFeid");
         noMonedasCanvas.SetActive(false);
@@ -36,6 +41,8 @@ public class Apuesta : MonoBehaviour
         }
         valorRestante = monedasTotales - totalApuesta;
         totalApuesta = valorApuesta + precioHabilidades;
+        retirarText.text = "Estas seguro?\n\n\nte retiras con\n\n$ " + monedasTotales.ToString() + " monedas";
+        continuarText.text = "Quieres continuar?\n\nTu apuesta actual es\n $ " + valorApuesta.ToString() + " \n\ntotal + habilidades\n$ " + totalApuesta.ToString();
         restantesText.text = "monedas restantes $ " + valorRestante.ToString();
         tusmonedasText.text = "Tus monedas $ " + monedasTotales.ToString();
         valortotalText.text = "$ " + totalApuesta.ToString();
@@ -64,9 +71,9 @@ public class Apuesta : MonoBehaviour
             inputApuesta.text = "";
         }
     }
-    public void cerrarButton()
+    public void cerrarButton(GameObject canvas)
     {
-        noMonedasCanvas.SetActive(false);
+        canvas.SetActive(false);
     }
 
     public void botontemporal()
@@ -111,9 +118,54 @@ public class Apuesta : MonoBehaviour
         PlayerPrefs.Save();
     }
 
+    public void NextButton()
+    {
+        if(valorApuesta != 0)
+        {
+            continuarCanvas.SetActive(true);
+        }
+        else
+        {
+            needCanvas.SetActive(true);
+        }
+    }
+
     IEnumerator goFortune()
     {
         yield return new WaitForSeconds(1.4f);
         SceneManager.LoadScene("WheelsOfFortune");
+    }
+
+    public void CancelarButton(GameObject canvas)
+    {
+        canvas.SetActive(false);
+    }
+
+    public void RetirarmeButton()
+    {
+        retirarCanvas.SetActive(true);
+    }
+
+    public void SalirButton()
+    {
+        feid.SetActive(true);
+        feidAnim.SetTrigger("go");
+        musicAnim.SetTrigger("go");
+        StartCoroutine("goMenu");
+        if(monedasTotales > highscore)
+        {
+            PlayerPrefs.SetInt("highscore", monedasTotales);
+        }
+    }
+
+    IEnumerator goMenu()
+    {
+        yield return new WaitForSeconds(1.4f);
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void AyudaButton()
+    {
+        ayudaCanvas.SetActive(true);
     }
 }

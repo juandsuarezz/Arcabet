@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WheelsOfFortune.unity
     guid: d8120295fdaeeb94689e0620b86c920e
+  - enabled: 1
+    path: Assets/Scenes/PlayingScene.unity
+    guid: 46276e35e5569df40bdd60aa7737c64a
   m_configObjects: {}

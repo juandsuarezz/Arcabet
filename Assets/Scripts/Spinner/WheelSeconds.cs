@@ -26,8 +26,8 @@ public class WheelSeconds : MonoBehaviour
     {
         if(wheelFortune.SpinCount == 2)
         {
-            frase.text = "Tienes que matar a " + wheelFortune.enemies.ToString() + 
-            " enemigos en " + seconds.ToString() + " segundos";
+            frase.text = "Debes matar a " + wheelFortune.enemies.ToString() + 
+            " enemigos en menos de " + seconds.ToString() + " segundos";
         }
     }
 
