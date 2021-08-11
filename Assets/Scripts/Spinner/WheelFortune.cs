@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class WheelFortune : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class WheelFortune : MonoBehaviour
     private Text text;
     public Text ApuestaText;
     public int apuesta;
+    public Animator feidAnim, musicAnim;
 
     // Start is called before the first frame update
     void Start()
@@ -108,5 +110,19 @@ public class WheelFortune : MonoBehaviour
     {
         yield return new WaitForSeconds(1.3f);
         feid.SetActive(false);
+    }
+
+    public void jugarButton()
+    {
+        feid.SetActive(true);
+        feidAnim.SetTrigger("go");
+        musicAnim.SetTrigger("go");
+        StartCoroutine("goScene");
+    }
+
+    IEnumerator goScene()
+    {
+        yield return new WaitForSeconds(1.4f);
+        SceneManager.LoadScene("PlayingScene");
     }
 }
