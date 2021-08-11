@@ -10,7 +10,6 @@ public class DashAbility : Ability
     public override void Activate(GameObject parent)
     {
         PlayerMovement movement = parent.GetComponent<PlayerMovement>();
-        Rigidbody2D rb = parent.GetComponent<Rigidbody2D>();
 
         movement.dashSpeed = dashVelocity;
     }

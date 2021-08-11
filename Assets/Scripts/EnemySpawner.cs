@@ -14,6 +14,8 @@ public class EnemySpawner : MonoBehaviour
     {
         Vector2 spawnPos = transform.position;
 
+        amountOfEnemies = PlayerPrefs.GetInt("enemigos");
+
         for (int i = 0; i < amountOfEnemies; i++)
         {
             spawnPos = Random.insideUnitCircle.normalized * spawnRadius;

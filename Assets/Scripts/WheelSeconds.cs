@@ -54,39 +54,40 @@ public class WheelSeconds : MonoBehaviour
         switch (finalAngle)
         {
             case 0:
-                seconds = 30;
+                seconds = 30f;
                 text.text = "30";
                 break;
             case 45:
-                seconds = 40;
+                seconds = 40f;
                 text.text = "40";
                 break;
             case 90:
-                seconds = 50;
+                seconds = 50f;
                 text.text = "50";
                 break;
             case 135:
-                seconds = 60;
+                seconds = 60f;
                 text.text = "60";
                 break;
             case 180:
-                seconds = 70;
+                seconds = 70f;
                 text.text = "70";
                 break;
             case 225:
-                seconds = 80;
+                seconds = 80f;
                 text.text = "80";
                 break;
             case 270:
-                seconds = 90;
+                seconds = 90f;
                 text.text = "90";
                 break;
             case 315:
-                seconds = 100;
+                seconds = 100f;
                 text.text = "100";
                 break;
         }
 
+        PlayerPrefs.SetFloat("tiempo", seconds);
         wheelFortune.SpinCount = wheelFortune.SpinCount + 1;
     }
 

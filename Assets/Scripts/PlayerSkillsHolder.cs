@@ -28,9 +28,13 @@ public class PlayerSkillsHolder : MonoBehaviour
             case AbilityState.ready:
                 if (Input.GetKeyDown(key))
                 {
-                    ability.Activate(gameObject);
-                    state = AbilityState.active;
-                    activeTime = ability.activeTime;
+                    if (ability.amount > 0)
+                    {
+                        ability.Activate(gameObject);
+                        state = AbilityState.active;
+                        activeTime = ability.activeTime;
+                        ability.amount -= 1;
+                    }
                 }
                 break;
             case AbilityState.active:
