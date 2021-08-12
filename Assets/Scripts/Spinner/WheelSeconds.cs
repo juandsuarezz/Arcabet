@@ -11,6 +11,8 @@ public class WheelSeconds : MonoBehaviour
     private float seconds;
     public WheelFortune wheelFortune;
     public Text frase;
+    public AudioSource audioSource;
+    public AudioClip sound;
 
     [SerializeField]
     private Text text;
@@ -44,6 +46,7 @@ public class WheelSeconds : MonoBehaviour
             if (i > Mathf.RoundToInt(randomValue * 0.85f))
                 timeInterval = 0.4f;
             yield return new WaitForSeconds(timeInterval);
+            audioSource.PlayOneShot(sound, 0.9f);
         }
 
         if (Mathf.RoundToInt(transform.eulerAngles.z) % 45 != 0)
