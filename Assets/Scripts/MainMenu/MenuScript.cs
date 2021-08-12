@@ -8,7 +8,7 @@ public class MenuScript : MonoBehaviour
 {
     public GameObject feid;
     public Animator feidAnim, musicAnim;
-    public int monedas, highscore, apuesta, ch1, ch2, ch3, ch4, enemigos, segundos;
+    public int monedas, highscore, apuesta, ch1, ch2, ch3, ch4, enemigos, segundos, valor90;
     public Text highscoreText;
 
     void Start()
@@ -24,6 +24,7 @@ public class MenuScript : MonoBehaviour
         ch4 = 0;
         enemigos = 0;
         segundos = 0;
+        valor90 = 1;
         SetPrefs();
         highscoreText.text = "$ " + highscore.ToString();
     }
@@ -74,6 +75,17 @@ public class MenuScript : MonoBehaviour
         PlayerPrefs.SetInt("ch4", ch4);
         PlayerPrefs.SetInt("enemigos", enemigos);
         PlayerPrefs.SetInt("segundos", segundos);
+        PlayerPrefs.SetInt("valor90", valor90);
         PlayerPrefs.Save();
+    }
+
+    public void goEnlaces(string enlace)
+    {
+        Application.OpenURL(enlace);
+    }
+
+    public void ExitApp()
+    {
+        Application.Quit();
     }
 }

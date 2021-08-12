@@ -12,6 +12,8 @@ public class WheelFortune : MonoBehaviour
     public int enemies;
     public int SpinCount;
     public GameObject girarButton, playButton, feid;
+    public AudioSource audioSource;
+    public AudioClip sound, cash;
 
     [SerializeField]
     private Text text;
@@ -37,6 +39,8 @@ public class WheelFortune : MonoBehaviour
         if(SpinCount == 2)
         {
             playButton.SetActive(true);
+            audioSource.PlayOneShot(cash, 0.9f);
+            SpinCount = 3;
         }
     }
 
@@ -53,6 +57,7 @@ public class WheelFortune : MonoBehaviour
             if (i > Mathf.RoundToInt(randomValue * 0.85f))
                 timeInterval = 0.4f;
             yield return new WaitForSeconds(timeInterval);
+            audioSource.PlayOneShot(sound, 0.9f);
         }
 
         if (Mathf.RoundToInt(transform.eulerAngles.z) % 45 != 0)

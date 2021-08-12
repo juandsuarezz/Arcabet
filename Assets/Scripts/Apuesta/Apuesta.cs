@@ -11,7 +11,8 @@ public class Apuesta : MonoBehaviour
     public Text apuestaText, valortotalText, tusmonedasText, restantesText, continuarText, retirarText;
     public InputField inputApuesta;
     public GameObject noMonedasCanvas, feid, panel, continuarCanvas, needCanvas, retirarCanvas, ayudaCanvas;
-    public ApuestaButtons apuestaButtons1, apuestaButtons2, apuestaButtons3, apuestaButtons4;
+    public ApuestaButtons apuestaButtons1, apuestaButtons2, apuestaButtons3;
+    public Button90 button90;
     public Animator feidAnim, musicAnim;
 
     // Start is called before the first frame update
@@ -58,11 +59,11 @@ public class Apuesta : MonoBehaviour
             apuestaButtons1.SetValor();
             apuestaButtons2.SetValor();
             apuestaButtons3.SetValor();
-            apuestaButtons4.SetValor();
+            button90.SetValor();
             apuestaButtons1.cantidad = 0;
             apuestaButtons2.cantidad = 0;
             apuestaButtons3.cantidad = 0;
-            apuestaButtons4.cantidad = 0;
+            button90.cantidad = 0;
             precioHabilidades = 0;
         }
         else
@@ -74,11 +75,6 @@ public class Apuesta : MonoBehaviour
     public void cerrarButton(GameObject canvas)
     {
         canvas.SetActive(false);
-    }
-
-    public void botontemporal()
-    {
-        apuestaButtons4.cost = apuestaButtons4.cost * 1.3f;
     }
 
     IEnumerator quitFeid()
@@ -94,11 +90,11 @@ public class Apuesta : MonoBehaviour
         apuestaButtons1.SetValor();
         apuestaButtons2.SetValor();
         apuestaButtons3.SetValor();
-        apuestaButtons4.SetValor();
+        button90.SetValor();
         apuestaButtons1.cantidad = 0;
         apuestaButtons2.cantidad = 0;
         apuestaButtons3.cantidad = 0;
-        apuestaButtons4.cantidad = 0;
+        button90.cantidad = 0;
         precioHabilidades = 0;
     }
 
@@ -114,7 +110,7 @@ public class Apuesta : MonoBehaviour
         PlayerPrefs.SetInt("ch1", apuestaButtons1.cantidad);
         PlayerPrefs.SetInt("ch2", apuestaButtons2.cantidad);
         PlayerPrefs.SetInt("ch3", apuestaButtons3.cantidad);
-        PlayerPrefs.SetInt("ch4", apuestaButtons4.cantidad);
+        PlayerPrefs.SetInt("ch4", button90.cantidad);
         PlayerPrefs.Save();
     }
 
@@ -167,5 +163,11 @@ public class Apuesta : MonoBehaviour
     public void AyudaButton()
     {
         ayudaCanvas.SetActive(true);
+    }
+
+    public void TemporalButton()
+    {
+        int valor90 = PlayerPrefs.GetInt("valor90");
+        PlayerPrefs.SetInt("valor90", valor90 * 2);
     }
 }
