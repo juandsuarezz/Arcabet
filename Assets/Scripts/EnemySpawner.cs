@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField]
     private float spawnRadius = 0f;
     public int amountOfEnemies = 0;
+    public Text enemiesText;
 
     public GameObject enemyPrefab;
 
@@ -21,6 +23,11 @@ public class EnemySpawner : MonoBehaviour
             spawnPos = Random.insideUnitCircle.normalized * spawnRadius;
             Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
         }
+    }
+
+    private void Update()
+    {
+        enemiesText.text = "Enemigos: " + amountOfEnemies.ToString();
     }
 
     private void OnDrawGizmos()

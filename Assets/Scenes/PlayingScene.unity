@@ -158,7 +158,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -120, y: -30}
-  m_SizeDelta: {x: 210, y: 30}
+  m_SizeDelta: {x: 220, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &92130076
 MonoBehaviour:
@@ -815,6 +815,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnRadius: 21
   amountOfEnemies: 0
+  enemiesText: {fileID: 92130076}
   enemyPrefab: {fileID: 7691074034699392623, guid: 463b76b7c1f6a71428a441e1a8986465, type: 3}
 --- !u!1 &999318113
 GameObject:
@@ -1210,8 +1211,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 90, y: -30}
-  m_SizeDelta: {x: 150, y: 30}
+  m_AnchoredPosition: {x: 110.25, y: -30}
+  m_SizeDelta: {x: 180, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1981340309
 MonoBehaviour:
