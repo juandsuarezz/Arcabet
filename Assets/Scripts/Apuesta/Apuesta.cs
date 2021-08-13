@@ -100,7 +100,7 @@ public class Apuesta : MonoBehaviour
 
     public void ContinuarButton()
     {
-        monedasTotales = valorRestante;
+        monedasTotales = monedasTotales - precioHabilidades;
         feid.SetActive(true);
         feidAnim.SetTrigger("go");
         musicAnim.SetTrigger("go");
