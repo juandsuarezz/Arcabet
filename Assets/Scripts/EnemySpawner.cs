@@ -30,6 +30,11 @@ public class EnemySpawner : MonoBehaviour
         enemiesText.text = "Enemigos: " + amountOfEnemies.ToString();
     }
 
+    public void SubstractAmountEnemies(int amount)
+    {
+        amountOfEnemies -= amount;
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.DrawSphere(transform.position, spawnRadius);

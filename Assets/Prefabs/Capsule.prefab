@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 5117714256691142510}
   - component: {fileID: 7442287981047721044}
   - component: {fileID: 8997068636985386291}
-  - component: {fileID: 707167279}
   - component: {fileID: 1591372125}
+  - component: {fileID: 707167279}
+  - component: {fileID: 462267329145597835}
   m_Layer: 6
   m_Name: Capsule
   m_TagString: Enemy
@@ -101,22 +102,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
---- !u!114 &707167279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7691074034699392623}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73a877d7eb5a72843b1a86c3227aee1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 12
-  x: 0
-  y: 0
-  direction_time: 1
 --- !u!50 &1591372125
 Rigidbody2D:
   serializedVersion: 4
@@ -138,3 +123,33 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &707167279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7691074034699392623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73a877d7eb5a72843b1a86c3227aee1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 12
+  x: 0
+  y: 0
+  direction_time: 1
+--- !u!114 &462267329145597835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7691074034699392623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d831b24f534bce246b37f4a728ce1b91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life: 0
+  enemySpawner: {fileID: 0}
