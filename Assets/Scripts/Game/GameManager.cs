@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public Animator feidAnim, musicAnim;
     public Text h1, h2, h3, h4, apuestaTitle, perdidaText, perdidaMonedas, gananciaText, gananciaMonedas, monedasPausa;
     public int monedas, apuesta, ch1, ch2, ch3, ch4, valor90, apuesta2;
+    public PlayerSkillsHolder playerSkills;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +27,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         apuesta2 = apuesta * 2;
-        h1.text = ch1.ToString();
+        h1.text = playerSkills.ability.amount.ToString();
         h2.text = ch2.ToString();
         h3.text = ch3.ToString();
         h4.text = ch4.ToString();
