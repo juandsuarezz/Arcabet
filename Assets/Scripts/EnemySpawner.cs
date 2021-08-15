@@ -35,6 +35,16 @@ public class EnemySpawner : MonoBehaviour
         amountOfEnemies -= amount;
     }
 
+    public int ReturnAmountOfEnemies()
+    {
+        return amountOfEnemies;
+    }
+
+    public int NinetyPercent()
+    {
+        return Mathf.RoundToInt(amountOfEnemies * 90 / 100);
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.DrawSphere(transform.position, spawnRadius);

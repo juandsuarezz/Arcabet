@@ -31,6 +31,11 @@ public class GameManager : MonoBehaviour
         h2.text = ch2.ToString();
         h3.text = ch3.ToString();
         h4.text = ch4.ToString();
+
+        ch1 = PlayerPrefs.GetInt("ch1");
+        ch2 = PlayerPrefs.GetInt("ch2");
+        ch3 = PlayerPrefs.GetInt("ch3");
+        ch4 = PlayerPrefs.GetInt("ch4");
     }
 
     public void SetVars()
