@@ -9,7 +9,7 @@ public class WheelFortune : MonoBehaviour
     private int randomValue;
     private float timeInterval;
     private int finalAngle;
-    public int enemies;
+    public int enemies, ready;
     public int SpinCount;
     public GameObject girarButton, playButton, feid;
     public AudioSource audioSource;
@@ -24,6 +24,7 @@ public class WheelFortune : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ready = PlayerPrefs.GetInt("ready");
         apuesta = PlayerPrefs.GetInt("apuesta");
         enemies = PlayerPrefs.GetInt("enemigos");
         feid.SetActive(true);
@@ -128,6 +129,14 @@ public class WheelFortune : MonoBehaviour
     IEnumerator goScene()
     {
         yield return new WaitForSeconds(1.4f);
-        SceneManager.LoadScene("PlayingScene");
+        if(ready == 0)
+        {
+            SceneManager.LoadScene("Instructions");
+        }
+
+        else if(ready == 1)
+        {
+            SceneManager.LoadScene("PlayingScene");
+        }
     }
 }

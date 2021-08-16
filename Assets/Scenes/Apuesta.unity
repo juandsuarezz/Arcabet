@@ -4954,9 +4954,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Dash: aumenta el campo de da\xF1o\n \ngun: disparo \n \nfire: disparo
-    de fuego que arrasa con todo\n\n-90%: elimina al 90% de tus enemigos restantes
-    \n( duplica su costo cada vez que lo usas)\n\n"
+  m_Text: "Dash: da un impulso de velocidad\n \ngun: dispara shurikens\n \nfire:
+    disparo de fuego que arrasa con todo\n\n-90%: elimina al 90% de tus enemigos
+    restantes \n( duplica su costo cada vez que lo usas)\n\n"
 --- !u!222 &1172396523
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8949,7 +8949,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2062808076
 RectTransform:
   m_ObjectHideFlags: 0

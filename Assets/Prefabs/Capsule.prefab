@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 7691074034699392623}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.4192243, y: 1.4192243, z: 1.4192243}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -75,8 +75,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -9095717837082945937, guid: 34587324d412940a79d530020c957dc0, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 1662210423cbc5e4e8d0e73b7b8a47fc, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -99,9 +99,9 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
-  m_Direction: 0
+  m_Offset: {x: -0.03, y: 0.17}
+  m_Size: {x: 1.65, y: 1.04}
+  m_Direction: 1
 --- !u!50 &1591372125
 Rigidbody2D:
   serializedVersion: 4
@@ -152,4 +152,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 0
-  enemySpawner: {fileID: 0}
+  soundScript: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: cc85de7e4ce2fd54e98f8caefeaddf5b, type: 3}

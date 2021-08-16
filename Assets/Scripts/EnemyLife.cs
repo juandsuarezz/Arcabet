@@ -6,6 +6,8 @@ public class EnemyLife : MonoBehaviour
 {
     public int life;
     private EnemySpawner enemySpawner;
+    public SoundScript soundScript;
+    public AudioClip audioClip;
 
     private void Awake()
     {
@@ -15,6 +17,7 @@ public class EnemyLife : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        soundScript = FindObjectOfType<SoundScript>();
         life = 1;
     }
 
@@ -32,7 +35,9 @@ public class EnemyLife : MonoBehaviour
 
     void Die()
     {
+        soundScript.playSound(audioClip);
         enemySpawner.SubstractAmountEnemies(1);
         Destroy(gameObject);
+
     }
 }

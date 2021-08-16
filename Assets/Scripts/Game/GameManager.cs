@@ -6,15 +6,18 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject feid, winCanvas, loseCanvas;
+    public GameObject feid, winCanvas, loseCanvas, player;
     public Animator feidAnim, musicAnim;
     public Text h1, h2, h3, h4, apuestaTitle, perdidaText, perdidaMonedas, gananciaText, gananciaMonedas, monedasPausa;
-    public int monedas, apuesta, ch1, ch2, ch3, ch4, valor90, apuesta2;
+    public int monedas, apuesta, ch1, ch2, ch3, ch4, apuesta2, ready;
     public PlayerSkillsHolder playerSkills;
 
     // Start is called before the first frame update
     void Start()
     {
+        ready = 1;
+        PlayerPrefs.SetInt("ready", ready);
+        PlayerPrefs.Save();
         Time.timeScale = 1;
         StartCoroutine("quitFeid");
         feid.SetActive(true);
@@ -46,11 +49,11 @@ public class GameManager : MonoBehaviour
         ch2 = PlayerPrefs.GetInt("ch2");
         ch3 = PlayerPrefs.GetInt("ch3");
         ch4 = PlayerPrefs.GetInt("ch4");
-        valor90 = PlayerPrefs.GetInt("valor90");
     }
 
     public void YouWin()
     {
+        player.SetActive(false);
         monedas = monedas + apuesta;
         PlayerPrefs.SetInt("monedas", monedas);
         PlayerPrefs.Save();
@@ -61,6 +64,7 @@ public class GameManager : MonoBehaviour
 
     public void YouLose()
     {
+        player.SetActive(false);
         monedas = monedas - apuesta;
         PlayerPrefs.SetInt("monedas", monedas);
         PlayerPrefs.Save();

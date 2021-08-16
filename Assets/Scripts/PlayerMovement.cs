@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     // Destroy 90%
     public GameObject enemySpawner;
     public int ninetyPercent;
-    public int nAbilityUses;
+    public int nAbilityUses, valor90;
     public Transform attackPos;
     public float attackRange;
     public LayerMask whatIsEnemy;
@@ -48,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        valor90 = PlayerPrefs.GetInt("valor90");
         ninetyPercent = enemySpawner.GetComponent<EnemySpawner>().NinetyPercent();
         rb = GetComponent<Rigidbody2D>();
     }
@@ -95,11 +96,14 @@ public class PlayerMovement : MonoBehaviour
             }
             catch (Exception e)
             {
-
+                Debug.Log(e);
             }
             nAbilityUses += 1;
             ch4Amount -= 1;
             PlayerPrefs.SetInt("ch4", ch4Amount);
+            valor90 = valor90 * 2;
+            PlayerPrefs.SetInt("valor90", valor90);
+            PlayerPrefs.Save();
         }
 
         if (isVAbilityActive)
