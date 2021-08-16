@@ -27,11 +27,13 @@ public class EnemyPatrol : MonoBehaviour
 
         enemyRb.MovePosition(enemyRb.position + movement * speed * Time.deltaTime);
         direction_time -= Time.deltaTime;
+        
 
         if (direction_time <= 0)
         {
             RandomPos();
             direction_time = initialTime;
+            
         }
     }
 
