@@ -4,7 +4,7 @@
 [![Issues][issues-shield]][issues-url]
 
 <p align="center">
-  <img src="https://img.itch.zone/aW1hZ2UvMTE2MDg0OC82NzUwNjQzLnBuZw==/original/ZnAsoH.png" width="400" height="260">
+  <img src="https://img.itch.zone/aW1nLzY3NTA2ODIucG5n/original/%2Fv8qri.png" width="400" height="260">
 
   <h3 align="center">Arcabet</h3>
 
@@ -31,7 +31,7 @@ Here [Arcabet](https://miguelcf06.itch.io/arcabet) you can download our game and
 * [Miguel Angel Cipamocha Figueredo](https://twitter.com/Miguel_C06)
 * [Juan David Suarez](https://twitter.com/juandsuarezw)
 
-[contributors-shield]: https://img.shields.io/github/contributors/juandsuarezz/Arcabetr?style=flat-square
+[contributors-shield]: https://img.shields.io/github/contributors/juandsuarezz/Arcabet?style=flat-square
 [contributors-url]: https://github.com/juandsuarezz/Arcabet//graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/juandsuarezz/Arcabet.svg?style=flat-square
 [forks-url]: https://github.com/juandsuarezz/Arcabet/network/members
