@@ -4,7 +4,7 @@
 [![Issues][issues-shield]][issues-url]
 
 <p align="center">
-  <img src="https://img.itch.zone/aW1nLzY3NTA2ODIucG5n/original/%2Fv8qri.png" width="400" height="260">
+  <img src="https://img.itch.zone/aW1nLzY3NTA2ODIucG5n/original/%2Fv8qri.png" width="800" height="260">
 
   <h3 align="center">Arcabet</h3>
 
